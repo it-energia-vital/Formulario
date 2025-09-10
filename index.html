@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Emagrecimento</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 2rem; background-color: #f4f7f6; color: #333; }
+        .container { max-width: 700px; margin: auto; background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        h1 { color: #2c3e50; text-align: center; }
+        .question-group { margin-bottom: 1.5rem; border-left: 3px solid #3498db; padding-left: 1rem; border-radius: 4px; }
+        .question-group.error-border { border-left-color: #e74c3c; } /* Destaque para erro */
+        label { font-weight: bold; display: block; margin-bottom: 0.75rem; }
+        .input-option { margin-bottom: 0.5rem; }
+        input[type="text"], input[type="tel"] { width: 100%; padding: 0.8rem; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+        button { display: block; width: 100%; padding: 1rem; background-color: #27ae60; color: white; border: none; border-radius: 4px; font-size: 1.2rem; cursor: pointer; transition: background-color 0.3s; }
+        button:hover { background-color: #229954; }
+        #status { margin-top: 1.5rem; text-align: center; font-weight: bold; padding: 1rem; border-radius: 4px; display: none; }
+        .success { background-color: #eafaf1; color: #229954; }
+        .error { background-color: #fdedec; color: #c0392b; }
+        .required { color: #e74c3c; margin-left: 4px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Plano de Emagrecimento</h1>
+    <form id="quizForm" novalidate> <!-- novalidate desativa a validação padrão do navegador -->
+
+        <!-- Pergunta 1 -->
+        <div class="question-group">
+            <label>Quando você pensa em emagrecer, qual desses objetivos é mais importante para você agora?<span class="required">*</span></label>
+            <div class="input-option"><input type="radio" name="objetivo_principal" value="Perder gordura localizada" required> Perder gordura localizada</div>
+            <div class="input-option"><input type="radio" name="objetivo_principal" value="Ter mais saúde e disposição"> Ter mais saúde e disposição</div>
+            <div class="input-option"><input type="radio" name="objetivo_principal" value="Ganhar confiança e autoestima"> Ganhar confiança e autoestima</div>
+            <div class="input-option"><input type="radio" name="objetivo_principal" value="Melhora exames e qualidade de vida"> Melhora exames e qualidade de vida</div>
+        </div>
+
+        <!-- Pergunta 2 -->
+        <div class="question-group">
+            <label>O que mais te atrapalha hoje no processo de emagrecimento?<span class="required">*</span></label>
+            <div class="input-option"><input type="radio" name="maior_atrapalho" value="Falta de disciplina" required> Falta de disciplina</div>
+            <div class="input-option"><input type="radio" name="maior_atrapalho" value="Ansiedade e vontade de comer doces"> Ansiedade e vontade de comer doces</div>
+            <div class="input-option"><input type="radio" name="maior_atrapalho" value="Pouco tempo para treinar ou cozinhar"> Pouco tempo para treinar ou cozinhar</div>
+            <div class="input-option"><input type="radio" name="maior_atrapalho" value="Não sabe por onde começar"> Não sabe por onde começar</div>
+        </div>
+
+        <!-- Pergunta 3 (Múltipla Escolha Obrigatória) -->
+        <div class="question-group">
+            <label>Como você gostaria de se sentir depois de alcançar seu objetivo? (selecione todos que se aplicam)<span class="required">*</span></label>
+            <div class="input-option"><input type="checkbox" name="sentimento_pos_objetivo" value="Mais leve e cheio(a) de energia"> Mais leve e cheio(a) de energia</div>
+            <div class="input-option"><input type="checkbox" name="sentimento_pos_objetivo" value="Seguro(a) para usar qualquer roupa"> Seguro(a) para usar qualquer roupa</div>
+            <div class="input-option"><input type="checkbox" name="sentimento_pos_objetivo" value="Orgulhoso(a) ao se olhar no espelho"> Orgulhoso(a) ao se olhar no espelho</div>
+            <div class="input-option"><input type="checkbox" name="sentimento_pos_objetivo" value="Inspirando amigos e família com o resultado"> Inspirando amigos e família com o resultado</div>
+        </div>
+
+        <!-- Pergunta 4 -->
+        <div class="question-group">
+            <label>Qual seria a maior vitória para você nesse processo?<span class="required">*</span></label>
+            <div class="input-option"><input type="radio" name="maior_vitoria" value="Subir na balança e ver números menores" required> Subir na balança e ver números menores</div>
+            <div class="input-option"><input type="radio" name="maior_vitoria" value="Ser elogiado(a) pelas pessoas"> Ser elogiado(a) pelas pessoas</div>
+            <div class="input-option"><input type="radio" name="maior_vitoria" value="Vestir roupas que há tempos não servem"> Vestir roupas que há tempos não servem</div>
+            <div class="input-option"><input type="radio" name="maior_vitoria" value="Melhorar sua saúde e autoestima"> Melhorar sua saúde e autoestima</div>
+        </div>
+
+        <!-- Pergunta 5 -->
+        <div class="question-group">
+            <label>Quanto tempo você gostaria de começar a perceber mudanças no seu corpo e bem-estar?<span class="required">*</span></label>
+            <div class="input-option"><input type="radio" name="tempo_mudancas" value="Em poucas semanas" required> Em poucas semanas</div>
+            <div class="input-option"><input type="radio" name="tempo_mudancas" value="Em até 3 meses"> Em até 3 meses</div>
+            <div class="input-option"><input type="radio" name="tempo_mudancas" value="O quanto antes possível"> O quanto antes possível</div>
+        </div>
+
+        <!-- Pergunta 6 -->
+        <div class="question-group">
+            <label>No seu dia a dia, qual desses fatores mais dificulta manter hábitos saudáveis?<span class="required">*</span></label>
+            <div class="input-option"><input type="radio" name="dificuldade_habitos" value="Trabalho corrido e falta de tempo" required> Trabalho corrido e falta de tempo</div>
+            <div class="input-option"><input type="radio" name="dificuldade_habitos" value="Alimentação desregulada"> Alimentação desregulada</div>
+            <div class="input-option"><input type="radio" name="dificuldade_habitos" value="Falta de motivação"> Falta de motivação</div>
+            <div class="input-option"><input type="radio" name="dificuldade_habitos" value="Não ter alguém para acompanhar e orientar"> Não ter alguém para acompanhar e orientar</div>
+        </div>
+
+        <!-- Pergunta 7 (Múltipla Escolha Obrigatória) -->
+        <div class="question-group">
+            <label>Se tivesse ajuda profissional, de que forma gostaria de ser acompanhado(a)? (selecione todos que se aplicam)<span class="required">*</span></label>
+            <div class="input-option"><input type="checkbox" name="tipo_acompanhamento" value="Com plano alimentar adaptado à rotina"> Com plano alimentar adaptado à rotina</div>
+            <div class="input-option"><input type="checkbox" name="tipo_acompanhamento" value="Com acompanhamento regular para ajustes"> Com acompanhamento regular para ajustes</div>
+            <div class="input-option"><input type="checkbox" name="tipo_acompanhamento" value="Com apoio motivacional e psicológico"> Com apoio motivacional e psicológico</div>
+            <div class="input-option"><input type="checkbox" name="tipo_acompanhamento" value="Com tudo junto para acelerar resultados"> Com tudo junto para acelerar resultados</div>
+        </div>
+
+        <!-- Pergunta 8 -->
+        <div class="question-group">
+            <label>O que mais te faria feliz ao conquistar seus resultados?<span class="required">*</span></label>
+            <div class="input-option"><input type="radio" name="maior_felicidade" value="Receber elogios e reconhecimento" required> Receber elogios e reconhecimento</div>
+            <div class="input-option"><input type="radio" name="maior_felicidade" value="Se sentir livre para usar qualquer roupa"> Se sentir livre para usar qualquer roupa</div>
+            <div class="input-option"><input type="radio" name="maior_felicidade" value="Voltar a se sentir bem consigo mesmo(a)"> Voltar a se sentir bem consigo mesmo(a)</div>
+            <div class="input-option"><input type="radio" name="maior_felicidade" value="Melhorar sua saúde e qualidade de vida"> Melhorar sua saúde e qualidade de vida</div>
+        </div>
+
+        <!-- Pergunta 9 -->
+        <div class="question-group">
+            <label>Qual seu maior desafio hoje em relação ao emagrecimento?<span class="required">*</span></label>
+            <div class="input-option"><input type="radio" name="maior_desafio" value="Manter constância" required> Manter constância</div>
+            <div class="input-option"><input type="radio" name="maior_desafio" value="Controlar a ansiedade"> Controlar a ansiedade</div>
+            <div class="input-option"><input type="radio" name="maior_desafio" value="Encontrar orientação certa"> Encontrar orientação certa</div>
+            <div class="input-option"><input type="radio" name="maior_desafio" value="Não desistir no meio do caminho"> Não desistir no meio do caminho</div>
+        </div>
+
+        <!-- Pergunta 10 -->
+        <div class="question-group">
+            <label>Você gostaria de receber um plano exclusivo, adaptado ao seu estilo de vida, para alcançar seu objetivo de forma mais rápida e saúdavel?<span class="required">*</span></label>
+            <div class="input-option"><input type="radio" name="interesse_plano" value="Sim, quero um plano personalizado" required> Sim, quero um plano personalizado</div>
+            <div class="input-option"><input type="radio" name="interesse_plano" value="Sim, quero entender como funciona"> Sim, quero entender como funciona</div>
+        </div>
+
+        <!-- Contato -->
+        <div class="question-group">
+            <label for="nome">Qual é o seu nome?<span class="required">*</span></label>
+            <input type="text" id="nome" name="Nome" required>
+        </div>
+        <div class="question-group">
+            <label for="whatsapp">Qual é o seu número do Whatsapp?<span class="required">*</span></label>
+            <input type="tel" id="whatsapp" name="Whatsapp" placeholder="(XX) XXXXX-XXXX" required>
+        </div>
+
+        <button type="submit">Enviar Respostas</button>
+        <div id="status"></div>
+    </form>
+</div>
+
+<script>
+    // URL da sua função serverless que você criará no Passo 3
+    const SERVERLESS_FUNCTION_URL = 'URL_DA_SUA_FUNCAO_VERCEL_AQUI';
+
+    const form = document.getElementById('quizForm');
+    const statusDiv = document.getElementById('status');
+
+    function validateForm() {
+        let isValid = true;
+        let firstInvalidElement = null;
+
+        // Limpa erros anteriores
+        document.querySelectorAll('.question-group.error-border').forEach(el => el.classList.remove('error-border'));
+
+        // Valida todos os inputs com 'required'
+        form.querySelectorAll('[required]').forEach(input => {
+            let questionGroup = input.closest('.question-group');
+            let isFilled = false;
+
+            if (input.type === 'radio') {
+                const radioGroup = form.querySelectorAll(`input[name="${input.name}"]`);
+                if (Array.from(radioGroup).some(radio => radio.checked)) {
+                    isFilled = true;
+                }
+            } else { // text, tel, etc.
+                if (input.value.trim() !== '') {
+                    isFilled = true;
+                }
+            }
+
+            if (!isFilled) {
+                isValid = false;
+                questionGroup.classList.add('error-border');
+                if (!firstInvalidElement) {
+                    firstInvalidElement = questionGroup;
+                }
+            }
+        });
+
+        // Validação customizada para grupos de checkboxes
+        const checkboxGroups = ['sentimento_pos_objetivo', 'tipo_acompanhamento'];
+        checkboxGroups.forEach(name => {
+            const checkboxes = form.querySelectorAll(`input[name="${name}"]`);
+            const questionGroup = checkboxes[0].closest('.question-group');
+            const isChecked = Array.from(checkboxes).some(cb => cb.checked);
+            
+            if (!isChecked) {
+                isValid = false;
+                questionGroup.classList.add('error-border');
+                if (!firstInvalidElement) {
+                    firstInvalidElement = questionGroup;
+                }
+            }
+        });
+
+        if (!isValid && firstInvalidElement) {
+            firstInvalidElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        return isValid;
+    }
+
+    form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+
+        // Limpa status anterior e valida o formulário
+        statusDiv.style.display = 'none';
+        if (!validateForm()) {
+            statusDiv.textContent = 'Por favor, preencha todos os campos obrigatórios.';
+            statusDiv.className = 'error';
+            statusDiv.style.display = 'block';
+            return;
+        }
+
+        statusDiv.textContent = 'Enviando...';
+        statusDiv.className = '';
+        statusDiv.style.display = 'block';
+
+        const formData = new FormData(form);
+        const responses = {};
+
+        formData.forEach((value, key) => {
+            if (responses[key]) {
+                if (!Array.isArray(responses[key])) {
+                    responses[key] = [responses[key]];
+                }
+                responses[key].push(value);
+            } else {
+                responses[key] = value;
+            }
+        });
+
+        try {
+            const response = await fetch(SERVERLESS_FUNCTION_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ responses })
+            });
+
+            if (!response.ok) {
+                throw new Error(`O servidor respondeu com o status: ${response.status}`);
+            }
+
+            statusDiv.textContent = 'Obrigado! Suas respostas foram enviadas com sucesso.';
+            statusDiv.className = 'success';
+            form.reset();
+            document.querySelectorAll('.question-group.error-border').forEach(el => el.classList.remove('error-border'));
+
+        } catch (error) {
+            console.error('Erro ao enviar formulário:', error);
+            statusDiv.textContent = 'Ocorreu um erro ao enviar. Por favor, tente novamente.';
+            statusDiv.className = 'error';
+        }
+    });
+</script>
+
+</body>
+</html>
